@@ -1,12 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+function Telainicial(){
   return (
     <View style={styles.container}>
-      <Text>Esse é o meu primeiro aplicativo feito em sala de aula de Ppdm</Text>
+      <Text>Testando o meu app! :D</Text>
+      <Button title ="teste" onPress={()=>{console.log("Apertou o botão");}} ></Button>
       <StatusBar style="auto" />
     </View>
+  );
+}
+
+function Telacadastro(){
+  return (
+    <View style={styles.container}>
+      <Text>Aqui é o Cadastro :D</Text>
+      <Button title ="teste" onPress={()=>{console.log("Apertou o botão");}} ></Button>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+export default function App() {
+  const Stack = createNativeStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Inicio" component={Telainicial} />
+        <Stack.Screen name="Cadastro" component={Telacadastro} />
+        <Stack.Screen name="b" component={Telainicial} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
